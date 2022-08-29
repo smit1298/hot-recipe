@@ -3,7 +3,7 @@ const LikedRecipes = ({ recipes, isLoading, toggleLike }) => {
 
   return (
     <div className='mt-[72px] justify-center w-full bg-[#fefefe] px-4 flex h-fit'>
-      <div className='flex items-center max-w-5xl w-full py-16 flex-wrap gap-8'>
+      <div className='flex items-center max-w-5xl w-full py-16 flex-wrap gap-8 justify-center'>
         {liked.map(recipe => (
           <div key={recipe.id} className='w-36 h-36 rounded-md relative mb-8'>
             {isLoading ? (

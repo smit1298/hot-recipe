@@ -43,7 +43,7 @@ const App = () => {
       }));
 
     fetch(
-      "https://api.spoonacular.com/recipes/random?apiKey=f7d02249db6b4f5fa139881887ba4520&number=16"
+      "https://api.spoonacular.com/recipes/random?apiKey=dbcf695a614b4106bf69636e61b8a0f0&number=16"
     )
       .then(res => res.json())
       .then(data => {

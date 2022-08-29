@@ -1,7 +1,7 @@
 const Recipes = ({ recipes, isLoading, toggleLike }) => {
   return (
     <div className='mt-[72px] justify-center w-full bg-[#fefefe] px-4 flex'>
-      <div className='flex items-center max-w-5xl w-full py-16 flex-wrap gap-8'>
+      <div className='flex justify-center items-center max-w-5xl w-full py-16 flex-wrap gap-8'>
         {recipes.map(recipe => (
           <div key={recipe.id} className='w-36 h-36 rounded-md relative mb-8'>
             {isLoading ? (

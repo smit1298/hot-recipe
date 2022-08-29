@@ -19,10 +19,10 @@ const Home = ({ recipes, isLoading, toggleLike }) => {
               Explore Recipes
             </Link>
           </div>
-          <img src={dish} alt='' className='' />
+          <img src={dish} alt='' className='hidden md:flex' />
         </div>
       </div>
-      <div className='p-20 bg-[#F8FAFB] w-full flex flex-col items-center'>
+      <div className='px-4 py-20 bg-[#F8FAFB] w-full flex flex-col items-center md:p-20'>
         <div className='max-w-5xl w-full flex flex-col items-center gap-12'>
           <h2 className='font-bold text-center text-3xl'>
             RECIPES YOU MAY LIKE
@@ -31,7 +31,7 @@ const Home = ({ recipes, isLoading, toggleLike }) => {
             We provide a variety of food and beverage recipes with high taste
             from various chefs
           </p>
-          <div className='flex gap-8 rounded-md'>
+          <div className='flex gap-8 rounded-md flex-wrap justify-center'>
             {recipes.slice(0, 4).map(recipe => (
               <div key={recipe.id} className='w-36 h-36 rounded-md relative'>
                 {isLoading ? (
