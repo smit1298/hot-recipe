@@ -10,9 +10,9 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const toggleLike = id => {
-    setRecipes(recipes =>
-      recipes.map(recipe =>
+  const toggleLike = (id) => {
+    setRecipes((recipes) =>
+      recipes.map((recipe) =>
         recipe.id === id
           ? {
               ...recipe,
@@ -26,16 +26,18 @@ const App = () => {
   const filterRecipes = (event, recipes) => {
     const { value } = event.target;
 
-    setRecipes(recipes =>
-      recipes.filter(recipe => recipe.title.toLowerCase().includes(value.toLowerCase()))
+    setRecipes((recipes) =>
+      recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(value.toLowerCase())
+      )
     );
 
     if (value === "") setRecipes(recipes);
   };
 
   useEffect(() => {
-    const modifyRecipes = recipes =>
-      recipes.map(recipe => ({
+    const modifyRecipes = (recipes) =>
+      recipes.map((recipe) => ({
         id: recipe.id,
         title: recipe.title,
         image: recipe.image,
@@ -43,16 +45,16 @@ const App = () => {
       }));
 
     fetch(
-      "https://api.spoonacular.com/recipes/random?apiKey=507a9b458b434c37b09b4d942cc24139&number=16"
+      "https://api.spoonacular.com/recipes/random?apiKey=f7d02249db6b4f5fa139881887ba4520&number=16"
     )
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data) {
           setIsLoading(false);
           setRecipes(modifyRecipes(data.recipes));
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     setRecipes(modifyRecipes(data.recipes));
   }, []);
@@ -62,7 +64,7 @@ const App = () => {
       <NavBar recipes={recipes} filterRecipes={filterRecipes} />
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <Home
               recipes={recipes}
@@ -72,7 +74,7 @@ const App = () => {
           }
         />
         <Route
-          path='/recipes'
+          path="/recipes"
           element={
             <Recipes
               recipes={recipes}
@@ -82,7 +84,7 @@ const App = () => {
           }
         />
         <Route
-          path='/liked-recipes'
+          path="/liked-recipes"
           element={
             <LikedRecipes
               recipes={recipes}
