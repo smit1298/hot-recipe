@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = ({ recipes, filterRecipes }) => {
-  const [hamburger, setHamburger] = useState(true);
+  const [hamburger, setHamburger] = useState(false);
 
   return (
-    <div className="flex justify-center p-4 absolute w-full left-0 top-0 bg-[#fefefe]">
+    <div className="flex justify-center p-4 fixed w-full left-0 top-0 bg-[#fefefe]">
       <div className="flex items-center justify-between max-w-5xl w-full">
         <div className="font-semibold text-2xl">
           <span className="">HOT</span>
@@ -70,7 +70,7 @@ const NavBar = ({ recipes, filterRecipes }) => {
         <div
           className={
             hamburger
-              ? "absolute flex flex-col gap-8 h-[100vh] w-72 top-0 left-0 z-10 bg-white shadow-2xl py-5 px-4"
+              ? "fixed z-50 flex flex-col gap-8 h-[100vh] w-72 top-0 left-0 bg-white shadow-2xl py-5 px-4"
               : "hidden"
           }
         >
